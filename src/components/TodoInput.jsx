@@ -1,5 +1,6 @@
 import { useState } from "react";
 import dayjs from "dayjs";
+import "./TodoInput.css";
 
 const TodoInput = ({ todos, setTodos }) => {
   const [inputValue, setInputValue] = useState('');
@@ -24,14 +25,16 @@ const TodoInput = ({ todos, setTodos }) => {
 
   return (
     <>
-      <div>todo</div>
-      <input
-        type="text" 
-        value={inputValue}
-        onChange={handleInputChange}
-        placeholder="Add a new Todo"
-      />
-      <button onClick={addNewTodo}>Add</button>
+      <div className="input-container">
+        <input
+            className="todo-input"
+            type="text" 
+            value={inputValue}
+            onChange={handleInputChange}
+            placeholder="Add a new Todo"
+          />
+        <button className="todo-add-button" onClick={addNewTodo}>Add</button>
+      </div>
     </>
   )
 }

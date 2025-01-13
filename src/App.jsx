@@ -14,19 +14,33 @@ function App() {
 
   return (
     <>
-      <TodoInput 
-        todos={todos}
-        setTodos={setTodos}
-      />
-      {todos.map(({id, text, time, date}) => {
-        return (
-        <div key={id}>
-          <div>{text}</div>
-          <div>{time}</div>
-          <div>{date}</div>
+      <div className="title">todo</div>
+      <div className="todo-container">
+        <TodoInput 
+          todos={todos}
+          setTodos={setTodos}
+        />
+
+        <div className="todo-list-container">
+          {todos.map(({id, text, time, date}) => {
+            return (
+            <div className="todo-item" key={id}>
+              <input type="checkbox" />
+              <div className="todo-content-container">
+                <div className="todo-text">{text}</div>
+                <div className="todo-date-container">
+                  <div className="todo-time">{time}</div>
+                  <div className="todo-date">{date}</div>
+                </div>
+              </div>
+              
+              <button className="todo-delete-button">Delete</button>
+            </div>
+          )
+          })}
         </div>
-      )
-      })}
+        
+      </div>
     </>
   )
 }

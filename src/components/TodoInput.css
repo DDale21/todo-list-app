@@ -1,0 +1,28 @@
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.todo-input {
+  flex: 1;
+  color: white;
+  background-color: hsl(0, 0%, 15%);
+  border: none;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.todo-input::placeholder {
+  color: hsl(0, 0%, 60%);
+}
+
+.todo-add-button {
+  background-color: hsl(196, 100%, 30%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 16px;
+  margin-left: 8px;
+  cursor: pointer;
+}

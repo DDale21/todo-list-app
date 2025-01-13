@@ -12,6 +12,11 @@ function App() {
     }
   }, [todos]);
 
+  function removeTodoById(todoId) {
+    const newTodo = todos.filter(({id}) => id !== todoId);
+    setTodos(newTodo);
+  }
+
   return (
     <>
       <div className="title">todo</div>
@@ -34,7 +39,10 @@ function App() {
                 </div>
               </div>
               
-              <button className="todo-delete-button">Delete</button>
+              <button
+                className="todo-delete-button"
+                onClick={() => removeTodoById(id)}
+              >Delete</button>
             </div>
           )
           })}

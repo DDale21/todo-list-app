@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { useEffect } from 'react';
-import './App.css'
 import TodoInput from './components/TodoInput';
 import Todo from './components/Todo';
+import TodoSummary from './components/TodoSummary';
+import './App.css'
 
 function App() {
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')) || []);
@@ -21,11 +22,14 @@ function App() {
   return (
     <>
       <div className="title">todo</div>
+
       <div className="todo-container">
         <TodoInput 
           todos={todos}
           setTodos={setTodos}
         />
+
+        <TodoSummary todos={todos} />
 
         <div className="todo-list-container">
           {todos.map(({id, text, time, date}) => {

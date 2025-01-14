@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Todo.css'
+import TrashIcon from "../assets/trash.svg";
 
 const Todo = ({ id, isCompleted, text, time, date, removeTodoById, updateTodoIsCompleted }) => {
   const [isChecked, setIsChecked] = useState(isCompleted);
@@ -15,7 +16,7 @@ const Todo = ({ id, isCompleted, text, time, date, removeTodoById, updateTodoIsC
   return (
     <>
     <div className="todo-item" key={id}>
-      <input type="checkbox" checked={isChecked} onChange={handleCheckBox}/>
+      <input className="todo-completed-checkbox" type="checkbox" checked={isChecked} onChange={handleCheckBox}/>
       
       <div className="todo-content-container">
         <div className="todo-text">{text}</div>
@@ -28,7 +29,7 @@ const Todo = ({ id, isCompleted, text, time, date, removeTodoById, updateTodoIsC
       <button
         className="todo-delete-button"
         onClick={() => removeTodoById(id)}
-      >Delete</button>
+      ><img src={TrashIcon} /></button>
     </div>
     </>
   )

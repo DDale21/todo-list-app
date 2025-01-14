@@ -1,6 +1,13 @@
+import { useEffect, useState } from "react";
 import "./TodoSummary.css"
 
 const TodoSummary = ({ todos }) => {
+  const [completedTodos, setCompletedTodos] = useState([]);
+  useEffect(() => {
+    const newCompletedTodos = todos.filter(({isCompleted}) => isCompleted);
+    setCompletedTodos(newCompletedTodos)
+  }, [todos]);
+
   return (
     <>
       <div className="todo-list-summary-container">
@@ -10,7 +17,7 @@ const TodoSummary = ({ todos }) => {
         </div>
         <div className="summary-completed">
           <div>Completed</div>
-          <button>2 of {todos.length}</button>
+          <button>{completedTodos.length} of {todos.length}</button>
         </div>
       </div>
     </>

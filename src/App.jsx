@@ -7,6 +7,7 @@ import './App.css'
 
 function App() {
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')) || []);
+
   useEffect(() => {
     console.log(todos);
     if (todos) {
@@ -16,6 +17,16 @@ function App() {
 
   function removeTodoById(todoId) {
     const newTodo = todos.filter(({id}) => id !== todoId);
+    setTodos(newTodo);
+  }
+
+  function updateTodoIsCompleted(todoId, isChecked) {
+    const newTodo = todos.map((todo) => {
+      if (todo.id === todoId) {
+        return { ...todo, isCompleted: isChecked }
+      }
+      return todo;
+    });
     setTodos(newTodo);
   }
 
@@ -32,15 +43,17 @@ function App() {
         <TodoSummary todos={todos} />
 
         <div className="todo-list-container">
-          {todos.map(({id, text, time, date}) => {
+          {todos.map(({id, isCompleted, text, time, date}) => {
             return (
             <Todo 
               key={id}
               id={id}
+              isCompleted={isCompleted}
               text={text}
               time={time}
               date={date}
               removeTodoById={removeTodoById}
+              updateTodoIsCompleted={updateTodoIsCompleted}
             />
           )
           })}

@@ -1,10 +1,21 @@
+import { useEffect, useState } from 'react';
 import './Todo.css'
 
-const Todo = ({ id, text, time, date, removeTodoById }) => {
+const Todo = ({ id, isCompleted, text, time, date, removeTodoById, updateTodoIsCompleted }) => {
+  const [isChecked, setIsChecked] = useState(isCompleted);
+
+  useEffect(() => {
+    updateTodoIsCompleted(id, isChecked)
+  }, [isChecked]);
+
+  function handleCheckBox() {
+    setIsChecked(!isChecked);
+  }
+
   return (
     <>
     <div className="todo-item" key={id}>
-      <input type="checkbox" />
+      <input type="checkbox" checked={isChecked} onChange={handleCheckBox}/>
       
       <div className="todo-content-container">
         <div className="todo-text">{text}</div>

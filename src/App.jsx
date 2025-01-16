@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useEffect } from 'react';
 import TodoInput from './components/TodoInput';
-import Todo from './components/Todo';
 import TodoSummary from './components/TodoSummary';
+import Todos from './components/Todos';
 import './App.css'
 
 function App() {
@@ -42,22 +42,11 @@ function App() {
 
         <TodoSummary todos={todos} />
 
-        <div className="todo-list-container">
-          {todos.map(({id, isCompleted, text, time, date}) => {
-            return (
-            <Todo 
-              key={id}
-              id={id}
-              isCompleted={isCompleted}
-              text={text}
-              time={time}
-              date={date}
-              removeTodoById={removeTodoById}
-              updateTodoIsCompleted={updateTodoIsCompleted}
-            />
-          )
-          })}
-        </div>
+        <Todos 
+          todos={todos} 
+          removeTodoById={removeTodoById} 
+          updateTodoIsCompleted={updateTodoIsCompleted} 
+        />
         
       </div>
     </>

@@ -18,7 +18,7 @@ const TodoInput = ({ todos, setTodos }) => {
       id: crypto.randomUUID(),
       isCompleted: false,
       text: inputValue,
-      date: dayjs().format('MMMM D, YYYY'),
+      date: dayjs().format('MMMM D'),
       time: dayjs().format('h:mm A')
     }]);
     setInputValue('');

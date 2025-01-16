@@ -9,7 +9,8 @@
 }
 
 .todo-text {
-  color: white;
+  color: #F2F2F2;
+  font-weight: bold;
 }
 
 .todo-time, .todo-date {
@@ -21,7 +22,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  gap: 8px;
+  gap: 16px;
 }
 
 .todo-date-container {
@@ -37,7 +38,7 @@
   border: none;
   border-radius: 6px;
   padding: 8px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   cursor: pointer;
   transition: background-color 0.5s ease;
 }
@@ -47,6 +48,6 @@
 }
 
 .todo-completed-checkbox {
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   cursor: pointer;
 }
